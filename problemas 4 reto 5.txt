@@ -1,0 +1,71 @@
+Python 3.15.2 (tags/v3.15.2:5e58eaa, Oct 25 2026, 17:27:03) [MSC v.1951 64 bit (AMD64)] on win32
+Enter "help" below or click "Help" above for more information.
+# ======================================================
+# Problema 4: Catálogo de Videoteca Digital
+# Estudiante: Andres camilo Orozco Trujillo 
+# Grupo: [Tu Grupo]
+# Programa: Ingeniería de Sistemas
+# Universidad Nacional Abierta y a Distancia - UNAD
+# ======================================================
+
+# --------------------------
+# Datos iniciales: Matriz con al menos 7 títulos
+# Formato: [Título, Año de lanzamiento, Calificación, Género]
+# --------------------------
+catalogo = [
+    ["El secreto de los Andes", 2022, 8, "Drama"],
+    ["Frontera invisible", 2019, 6, "Acción"],
+    ["Voces del pasado", 2023, 9, "Documental"],
+    ["La última expedición", 2018, 7, "Aventura"],
+    ["Ciudad de niebla", 2021, 8, "Suspenso"],
+    ["El renacer", 2024, 10, "Ciencia Ficción"],
+    ["Caminos cruzados", 2020, 7, "Romance"]
+]
+
+# --------------------------
+... # Función módulo: Contar títulos que cumplen los criterios
+... # --------------------------
+... def contar_titulos(catalogo, umbral_calificacion, anio_limite):
+...     contador = 0
+...     print("-" * 65)
+...     print(f"{'Título':<25} | {'Año':<6} | {'Calificación':<14} | {'Cumple criterios'}")
+...     print("-" * 65)
+...     
+...     for pelicula in catalogo:
+...         titulo = pelicula[0]
+...         anio = pelicula[1]
+...         calificacion = pelicula[2]
+...         
+...         cumple_calificacion = calificacion >= umbral_calificacion
+...         cumple_anio = anio >= anio_limite
+...         
+...         if cumple_calificacion and cumple_anio:
+...             contador += 1
+...             estado = "✅ Sí"
+...         else:
+...             estado = "❌ No"
+...         
+...         print(f"{titulo:<25} | {anio:<6} | {calificacion:<14} | {estado}")
+...     
+...     print("-" * 65)
+...     return contador
+... 
+... # --------------------------
+... # Parámetros configurables
+... # --------------------------
+... umbral_calificacion = 8   # Calificación mínima requerida
+... anio_limite = 2020        # Año más antiguo permitido
+... 
+... # --------------------------
+... # Ejecución principal
+... # --------------------------
+... print("=" * 65)
+... print("        🎬 INFORME DE CATÁLOGO DE VIDEOTECA")
+... print("=" * 65)
+... print(f"Criterios: Calificación ≥ {umbral_calificacion}  |  Año de lanzamiento ≥ {anio_limite}")
+... print("=" * 65)
+... 
+... total_cumplen = contar_titulos(catalogo, umbral_calificacion, anio_limite)
+... 
+... print(f"\n📊 RESULTADO: {total_cumplen} título(s) cumplen con ambos criterios.")
+... print("=" * 65)
